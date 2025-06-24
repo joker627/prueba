@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+{% extends 'menu.html' %}
+{% block content %}
+
+
+<body>
+    <section class="hero" role="banner">
+        <h1>Protege tu camino con Seguridad Vial</h1>
+        <p>Encuentra equipos y accesorios confiables para tu protección y la de los demás en la carretera.</p>
+    </section>
+
+    <main>
+        <section class="carrusel-auto">
+            <h2>Galería de Equipos en Acción</h2>
+            <div class="slides-auto">
+                <div class="slide" role="group" aria-label="Diapositiva 1 de 3">
+                    <img src="{{ url_for('static', filename='images/casco/casco.jpg') }}" alt="Casco de seguridad">
+                </div>
+                <div class="slide" role="group" aria-label="Diapositiva 2 de 3">
+                    <img src="{{ url_for('static', filename='images/chalecos/chaleco2.jpg') }}" alt="Chaleco reflectivo">
+                </div>
+                <div class="slide" role="group" aria-label="Diapositiva 3 de 3">
+                    <img src="{{ url_for('static', filename='images/equiposeguridad.jpg') }}" alt="Equipo de seguridad vial">
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="productos-destacados">
+            <h2 id="destacados-heading">Nuestros Productos Más Vendidos</h2>
+            <div class="destacados-grid">
+                <!-- Productos aquí -->
+            </div>
+            <div class="ver-mas-productos">
+                <a href="productos.html" class="boton-primario">Ver todos los productos</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="galeria">
+            <h2 id="galeria-general-heading">Toda Nuestra Colección de Seguridad Vial</h2>
+            <div class="productos-grid">
+                <!-- Productos aquí -->
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="info-adicional">
+            <h2 id="info-heading">¿Por qué elegir Seguridad Vial?</h2>
+            <div class="beneficios-grid">
+                <!-- Beneficios -->
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="llamada-accion-final">
+            <h2>Únete a nuestra comunidad segura</h2>
+            <p>Miles de conductores ya confían en nosotros para proteger su camino. ¡No te quedes atrás!</p>
+            <a href="contacto.html" class="boton-primario">Contáctanos Hoy</a>
+        </section>
+    </main>
+
+    <!-- 🛒 Carrito de compras -->
+    <div class="carrito-compras">
+        <button id="carrito-toggle" aria-label="Ver carrito">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="contador-carrito">0</span>
+        </button>
+        <div id="carrito-contenido" class="carrito-contenido" hidden>
+            <h3>Tu Carrito</h3>
+            <ul id="lista-carrito">
+                <!-- Productos se cargarán aquí con JS -->
+            </ul>
+            <p class="total">Total: $0</p>
+            <a href="checkout.html" class="boton-primario">Finalizar compra</a>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button id="chatbot-toggle" aria-expanded="false" aria-controls="chatbot-window" aria-label="Abrir o cerrar el chatbot">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div id="chatbot-window" class="chatbot-window" aria-live="polite" aria-atomic="true" hidden>
+            <div class="chatbot-header">
+                <h3>Asistente de Seguridad Vial</h3>
+                <button id="chatbot-close" aria-label="Cerrar chatbot"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chatbot-body" id="chatbot-body">
+                <div class="message received">
+                    <p>¡Hola! Soy tu asistente de Seguridad Vial. ¿En qué puedo ayudarte hoy?</p>
+                </div>
+            </div>
+            <div class="chatbot-footer">
+                <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..." aria-label="Escribe tu mensaje al chatbot">
+                <button id="chatbot-send" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Seguridad Vial | Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='carrito.js') }}"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+{% endblock %}
+</html>

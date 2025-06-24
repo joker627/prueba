@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seguridad Vial - Inicio | Protege tu camino</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block head %}{% endblock %}
+</head>
+    
+<body>
+    <!-- Menú de navegación -->
+    <header class="site-header">
+        <nav class="barra-navegacion" aria-label="Navegación principal del sitio">
+            <a href="{{ url_for('home') }}">Inicio</a>
+            <a href="{{ url_for('equipo_seguridad') }}">Equipo de seguridad</a>
+            <a href="{{ url_for('accesorios') }}">Accesorios</a>
+            <a href="{{ url_for('herramientas') }}">Seguridad Vial</a>
+        </nav>
+    </header>
+        
+    <div class="redes-sociales-flotantes">
+        <a href="https://www.facebook.com/tupagina" target="_blank" aria-label="Síguenos en Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/tupagina" target="_blank" aria-label="Síguenos en Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.twitter.com/tupagina" target="_blank" aria-label="Síguenos en X (Twitter)">
+            <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/tupagina" target="_blank" aria-label="Síguenos en LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Seguridad Vial | Todos los derechos reservados</p>
+        </div>
+    </footer>
+</body>
+
+</html>
