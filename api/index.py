@@ -1,21 +1,22 @@
-from fastapi import FastAPI
-from mangum import Mangum
+from flask import Flask, request, jsonify
 
-app = FastAPI()
+app = Flask(__name__)
 
-datos = [{"nombre": "Juan"}]
+datos = []
 
-@app.get("/")
+@app.route("/")
 def home():
-    return {
-        "ok": True,
+    return jsonify({
+        "msg": "ok",
         "datos": datos
-    }
+    })
 
-@app.get("/add")
+@app.route("/add", methods=["POST"])
 def add():
-    datos.append({"nombre": "nuevo"})
-    return {"datos": datos}
+    data = request.get_json()
+    if data:
+        datos.append(data)
+    return jsonify(datos)
 
-#  obligatorio en Vercel
-handler = Mangum(app)
+# requerido para Vercel
+handler = app
