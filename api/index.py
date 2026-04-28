@@ -18,10 +18,6 @@ datos = [
 def home():
     return {"datos": datos}
 
-@app.post("/add")
-def add(item: dict):
-    datos.append(item)
-    return {"datos": datos}
 
 # handler para serverless
 handler = Mangum(app)
