@@ -2,7 +2,11 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-datos = []
+# Datos ya cargados directamente
+datos = [
+    {"nombre": "Juan", "edad": 25},
+    {"nombre": "Ana", "edad": 30}
+]
 
 @app.route("/")
 def home():
@@ -16,7 +20,9 @@ def add():
     data = request.get_json()
     if data:
         datos.append(data)
-    return jsonify(datos)
+    return jsonify({
+        "datos": datos
+    })
 
 # requerido para Vercel
 handler = app
