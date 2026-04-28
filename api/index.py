@@ -7,3 +7,6 @@ datos = [{"nombre": "Juan"}]
 @app.get("/")
 def home():
     return {"datos": datos}
+
+#  IMPORTANTE para Vercel (ASGI entrypoint)
+handler = app
