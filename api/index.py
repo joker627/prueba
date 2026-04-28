@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from mangum import Mangum
 
 app = FastAPI()
 
@@ -8,5 +9,5 @@ datos = [{"nombre": "Juan"}]
 def home():
     return {"datos": datos}
 
-#  IMPORTANTE para Vercel (ASGI entrypoint)
-handler = app
+# adaptador para Vercel
+handler = Mangum(app)
