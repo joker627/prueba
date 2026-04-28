@@ -1,28 +1,9 @@
-from flask import Flask, request, jsonify
+from fastapi import FastAPI
 
-app = Flask(__name__)
+app = FastAPI()
 
-# Datos ya cargados directamente
-datos = [
-    {"nombre": "Juan", "edad": 25},
-    {"nombre": "Ana", "edad": 30}
-]
+datos = [{"nombre": "Juan"}]
 
-@app.route("/")
+@app.get("/")
 def home():
-    return jsonify({
-        "msg": "ok",
-        "datos": datos
-    })
-
-@app.route("/add", methods=["POST"])
-def add():
-    data = request.get_json()
-    if data:
-        datos.append(data)
-    return jsonify({
-        "datos": datos
-    })
-
-# requerido para Vercel
-handler = app
+    return {"datos": datos}
